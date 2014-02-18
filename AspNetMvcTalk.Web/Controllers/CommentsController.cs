@@ -5,6 +5,8 @@ using AspNetMvcTalk.Web.Models.Comments;
 using AspNetMvcTalk.Web.Models.Indexes;
 using AspNetMvcTalk.Web.Models.Objects;
 using MvcFlash.Core.Extensions;
+using PagedList;
+using StructureMap.Query;
 
 namespace AspNetMvcTalk.Web.Controllers
 {
@@ -18,9 +20,8 @@ namespace AspNetMvcTalk.Web.Controllers
             using (var session = Database.OpenSession())
             {
                 model.Comments = session.Query<Comment, Comments_Index>()
-                    .Skip((model.Page - 1) * model.Size)
-                    .Take(model.Size)
-                    .ToList();
+                    .OrderByDescending(x => x.CreatedAt)
+                    .ToPagedList(model.Page, model.Size);
             }
 
             return View(model);

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using AspNetMvcTalk.Web.Models.Objects;
+using PagedList;
 
 namespace AspNetMvcTalk.Web.Models.Comments
 {
@@ -10,13 +8,13 @@ namespace AspNetMvcTalk.Web.Models.Comments
     {
         public IndexModel()
         {
-            Comments = new List<Comment>();
             Size = 5;
+            Comments = new StaticPagedList<Comment>(new List<Comment>(), 1, Size, 0);
         }
 
         public int Size { get; set; }
         public int Page { get; set; }
-        public IList<Comment> Comments { get; set; }
+        public IPagedList<Comment> Comments { get; set; }
 
         public string IsInverted(int index)
         {

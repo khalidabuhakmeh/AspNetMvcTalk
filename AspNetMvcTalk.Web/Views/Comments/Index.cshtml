@@ -1,4 +1,5 @@
-﻿@model AspNetMvcTalk.Web.Models.Comments.IndexModel
+﻿@using PagedList.Mvc
+@model AspNetMvcTalk.Web.Models.Comments.IndexModel
 @{
     ViewBag.Title = "Index";    
 }
@@ -32,6 +33,14 @@
                 Fan Timeline
             </h1>
         </div>
+        @{
+            var options = PagedListRenderOptions.TwitterBootstrapPagerAligned;
+            options.LinkToNextPageFormat = "Older →";
+            options.LinkToPreviousPageFormat = "← Newer";
+            options.DisplayPageCountAndCurrentLocation = true;
+        }
+        @Html.PagedListPager(Model.Comments, i => Url.Action("index", new { page = i }), options)
+
         <ul class="timeline">
             @for (var index = 0; index < Model.Comments.Count; index++)
             {   
@@ -52,6 +61,8 @@
                 </li>
             }
         </ul>
+        
+        @Html.PagedListPager(Model.Comments, i => Url.Action("index", new { page = i }), options)
     </div>
 }
 else
