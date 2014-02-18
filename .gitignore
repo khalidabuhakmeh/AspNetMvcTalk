@@ -149,3 +149,9 @@ $RECYCLE.BIN/
 
 # Mac crap
 .DS_Store
+
+# =========================
+# Custom Stuff
+# =========================
+
+AspNetMvcTalk.Web/App_Data/

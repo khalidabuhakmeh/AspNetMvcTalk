@@ -7,6 +7,7 @@ namespace AspNetMvcTalk.Web
         protected void Application_Start()
         {
             ViewEngineConfig.Setup();
+            RavenDbConfig.Setup();
         }
     }
 }
