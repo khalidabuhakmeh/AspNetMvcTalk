@@ -15,6 +15,7 @@ namespace AspNetMvcTalk.Web.App_Start
             map.Root<CommentsController>(c => c.Index(null));
             map.Resources<CommentsController>(c => c.Only("index", "new", "create"));
             map.Resource<ContactController>(c => c.Only("new", "create"));
+            map.Resource<ErrorController>(e => e.Only("show"));
 
             /*
              * Note: You can register and next resources

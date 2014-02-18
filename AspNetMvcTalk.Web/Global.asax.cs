@@ -1,4 +1,5 @@
-﻿using AspNetMvcTalk.Web.App_Start;
+﻿using System.Web.Mvc;
+using AspNetMvcTalk.Web.App_Start;
 
 namespace AspNetMvcTalk.Web
 {
@@ -9,6 +10,9 @@ namespace AspNetMvcTalk.Web
             ViewEngineConfig.Setup();
             RavenDbConfig.Setup();
             ValidationConfig.Setup();
+
+            // for elmah
+            GlobalFilters.Filters.Add(new HandleErrorAttribute());
         }
     }
 }
