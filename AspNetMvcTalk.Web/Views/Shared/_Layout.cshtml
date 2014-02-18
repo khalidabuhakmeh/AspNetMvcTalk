@@ -30,14 +30,18 @@
     <div class="container">
         <div class="header">
             <ul class="nav nav-pills pull-right">
-                <li><a href="@Url.Action("index", "comments")">Home</a></li>
+                <li><a href="@Url.Action("index", "comments")"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li><a href="@Url.Action("new", "comments")">Comment <i class="glyphicon glyphicon-comment"></i> </a></li>
                 <li><a href="@Url.Action("new", "contact")">Contact</a></li>
                 <li><a href="~/routedebug">Routes</a></li>
             </ul>
             <h1 class="text-muted">
-                <img alt="One Direction" src="~/Content/img/one%20direction%20logo.png" />
-                Fans
+                <a href="@Url.Action("index", "comments")">
+                    <img alt="One Direction" src="~/Content/img/one%20direction%20logo.png" />
+                    Fans
+                </a>
             </h1>
+
         </div>
 
         @RenderBody()

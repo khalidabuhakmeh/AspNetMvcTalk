@@ -1,7 +1,43 @@
-﻿
+﻿@model AspNetMvcTalk.Web.Models.Comments.NewModel
 @{
-    ViewBag.Title = "New";
+    ViewBag.Title = "New Comment";
 }
 
-<h2>New</h2>
+<p class="alert alert-info">
+    <i class="glyphicon glyphicon-star"></i>
+    Select your favorite member of <strong>One Direction</strong> and leave them a message.
+</p>
 
+@using (Html.BeginForm("create", "comments", FormMethod.Post))
+{
+    @Html.ValidationSummary(string.Empty, new { @class = "alert alert-danger" })
+    
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="favorite">
+                @foreach (var member in Model.Members)
+                {
+                    <li>
+                        <label for="@member.Value">
+                            <span>@member.Text</span>
+                            <img src="@Url.MemberPictureUrl(member.Value)" alt="@member.Text" />
+                            @Html.RadioButtonFor(m => m.Favorite, member.Value, new { id = member.Value })
+                        </label>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="form-group">
+                @Html.TextBoxFor(m => m.Name, new { @class="form-control", placeholder="your name"})
+        </div>
+        <div class="form-group">
+            @Html.TextAreaFor(m => m.Text, new { @class = "form-control", placeholder = "your message", rows="5" })
+        </div>
+        
+        <div class="form-group">
+            <button type="submit" class="btn-block btn btn-success">
+                Submit Comment
+            </button>
+        </div>
+    </div>
+}

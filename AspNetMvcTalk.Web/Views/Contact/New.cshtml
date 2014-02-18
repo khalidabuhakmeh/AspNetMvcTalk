@@ -1,7 +1,29 @@
-﻿
+﻿@model AspNetMvcTalk.Web.Models.Contact.NewModel
 @{
-    ViewBag.Title = "New";
+    ViewBag.Title = "Contact Us";
 }
 
-<h2>Contact Form</h2>
+<p class="alert alert-info">
+    <i class="glyphicon glyphicon-envelope"></i>
+    Have any feedback? We'ed love to hear from you. The <strong>true</strong> One Direction fans.
+</p>
 
+@using (Html.BeginForm("create", "Contact", FormMethod.Post))
+{
+    @Html.ValidationSummary(string.Empty, new { @class = "alert alert-danger" })
+    <div class="form-group">
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "your name" })
+    </div>
+    <div class="form-group">
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "your name" })
+    </div>
+    <div class="form-group">
+        @Html.TextAreaFor(m => m.Message, new { @class = "form-control", placeholder = "your message", rows = "5" })
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn-block btn btn-success">
+            Contact Us
+        </button>
+    </div>
+}

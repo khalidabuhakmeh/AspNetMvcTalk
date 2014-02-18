@@ -1,26 +1,50 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using AspNetMvcTalk.Web.Models.Comments;
+using AspNetMvcTalk.Web.Models.Indexes;
+using AspNetMvcTalk.Web.Models.Objects;
 
 namespace AspNetMvcTalk.Web.Controllers
 {
     public class CommentsController : ApplicationController
     {
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            return View();
+            var pageNumber = Math.Max(1, page ?? 1);
+            var model = new IndexModel { Page = pageNumber };
+
+            using (var session = Database.OpenSession())
+            {
+                model.Comments = session.Query<Comment, Comments_Index>()
+                    .Skip((model.Page - 1) * model.Size)
+                    .Take(model.Size)
+                    .ToList();
+            }
+
+            return View(model);
         }
 
         public ActionResult New()
         {
-            return View();
+            return View(new NewModel());
         }
 
-        public ActionResult Create()
+        public ActionResult Create(NewModel input)
         {
-            return View("New");
+            if (ModelState.IsValid)
+            {
+                using (var session = Database.OpenSession())
+                {
+                    var comment = input.ToComment();
+                    session.Store(comment);
+                    session.SaveChanges();
+                }
+
+                return RedirectToAction("Index");
+            }
+
+            return View("New", input);
         }
-	}
+    }
 }

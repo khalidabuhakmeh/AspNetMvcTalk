@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using AspNetMvcTalk.Web.Models.Contact;
 
 namespace AspNetMvcTalk.Web.Controllers
 {
@@ -13,9 +10,15 @@ namespace AspNetMvcTalk.Web.Controllers
             return View();
         }
 
-        public ActionResult Create()
+        public ActionResult Create(NewModel input)
         {
-            return RedirectToAction("New");
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("New");
+            }
+
+            return View("new", input);
+
         }
     }
 }

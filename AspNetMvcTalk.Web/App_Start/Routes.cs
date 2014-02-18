@@ -12,7 +12,7 @@ namespace AspNetMvcTalk.Web.App_Start
         public override void Map(IMapper map)
         {
             map.DebugRoute("routedebug");
-            map.Root<CommentsController>(c => c.Index());
+            map.Root<CommentsController>(c => c.Index(null));
             map.Resources<CommentsController>(c => c.Only("index", "new", "create"));
             map.Resource<ContactController>(c => c.Only("new", "create"));
 

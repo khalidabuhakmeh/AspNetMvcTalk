@@ -8,6 +8,7 @@ namespace AspNetMvcTalk.Web
         {
             ViewEngineConfig.Setup();
             RavenDbConfig.Setup();
+            ValidationConfig.Setup();
         }
     }
 }
