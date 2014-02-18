@@ -31,9 +31,9 @@
     <div class="container">
         <div class="header">
             <ul class="nav nav-pills pull-right">
-                <li><a href="@Url.Action("index", "comments")"><i class="glyphicon glyphicon-home"></i></a></li>
-                <li><a href="@Url.Action("new", "comments")">Comment <i class="glyphicon glyphicon-comment"></i> </a></li>
-                <li><a href="@Url.Action("new", "contact")">Contact</a></li>
+                <li class="@Html.IsActiveCss("index", "comments", "")" ><a href="@Url.Action("index", "comments")"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li class="@Html.IsActiveCss("new", "comments", "")"><a href="@Url.Action("new", "comments")">Comment <i class="glyphicon glyphicon-comment"></i> </a></li>
+                <li class="@Html.IsActiveCss("new", "contact", "")"><a href="@Url.Action("new", "contact")">Contact</a></li>
                 <li><a href="~/routedebug">Routes</a></li>
             </ul>
             <h1 class="text-muted">
