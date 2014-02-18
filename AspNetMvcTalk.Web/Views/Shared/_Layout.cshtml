@@ -1,0 +1,54 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Narrow Jumbotron Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/content/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="~/content/css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <ul class="nav nav-pills pull-right">
+                <li><a href="@Url.Action("index", "comments")">Home</a></li>
+                <li><a href="@Url.Action("new", "contact")">Contact</a></li>
+                <li><a href="~/routedebug">Routes</a></li>
+            </ul>
+            <h1 class="text-muted">
+                <img alt="One Direction" src="~/Content/img/one%20direction%20logo.png" />
+                Fans
+            </h1>
+        </div>
+
+        @RenderBody()
+
+    <div class="footer">
+        <p>&copy; One Direction Fans 2014</p>
+    </div>
+
+</div> <!-- /container -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script src="~/Content/js/bootstrap.min.js"></script>
+</body>
+</html>

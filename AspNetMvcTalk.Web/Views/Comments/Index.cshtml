@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div class="jumbotron">
+    <h1>
+        <img src="~/Content/img/one%20direction%20logo.png" class="logo" alt="One Direction" />
+    </h1>
+    <p class="lead">
+        <img src="~/Content/img/Harry.png" alt="Harry Styles" title="Harry Styles">
+        <img src="~/Content/img/Liam.png" alt="Liam Payne" title="Liam Payne">
+        <img src="~/Content/img/Louis.png" alt="Louis Tomlinson" title="Louis Tomlinson">
+        <img src="~/Content/img/Niall.png" alt="Niall Horan" title="Niall Horan">
+        <img src="~/Content/img/Zayn.png" alt="Zayn Malik" title="Zayn Malik">
+    </p>
+    <hr />
+    <p>
+        <a class="btn btn-lg btn-success" href="@Url.Action("new", "comments")" role="button">
+            Leave A Comment
+            <i class="glyphicon glyphicon-comment"></i>
+        </a>
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="well well-lg">
+            Currently No Comments
+        </div>
+    </div>
+</div>
+
