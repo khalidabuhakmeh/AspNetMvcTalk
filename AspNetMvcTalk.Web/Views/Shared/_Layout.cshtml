@@ -1,4 +1,5 @@
-﻿
+﻿@using MvcFlash.Core.Extensions
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,6 +44,8 @@
             </h1>
 
         </div>
+    
+        @Html.Flash()
 
         @RenderBody()
 

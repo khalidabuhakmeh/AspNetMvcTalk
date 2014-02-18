@@ -1,6 +1,7 @@
 ﻿using System.Web;
 using AspNetMvcTalk.Web.App_Start;
 using FluentValidation;
+using MvcFlash.Core;
 using Raven.Client;
 using StructureMap.Configuration.DSL;
 
@@ -24,6 +25,10 @@ namespace AspNetMvcTalk.Web.DependencyResolution.Registries
             .ForEach(result => For(result.InterfaceType)
                                    .HybridHttpOrThreadLocalScoped()
                                    .Use(result.ValidatorType));
+
+            For<IFlashPusher>()
+                .HybridHttpOrThreadLocalScoped()
+                .Use(Flash.Instance);
         }
 
     }

@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using AspNetMvcTalk.Web.Models.Contact;
+using MvcFlash.Core.Extensions;
 
 namespace AspNetMvcTalk.Web.Controllers
 {
@@ -14,6 +15,7 @@ namespace AspNetMvcTalk.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                Flash.Success("Thank you", "we have received your message and will reploy as soon as we can.");
                 return RedirectToAction("New");
             }
 

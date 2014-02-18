@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using AspNetMvcTalk.Web.Models.Comments;
 using AspNetMvcTalk.Web.Models.Indexes;
 using AspNetMvcTalk.Web.Models.Objects;
+using MvcFlash.Core.Extensions;
 
 namespace AspNetMvcTalk.Web.Controllers
 {
@@ -41,6 +42,7 @@ namespace AspNetMvcTalk.Web.Controllers
                     session.SaveChanges();
                 }
 
+                Flash.Success("Hooray!", "your comment will shortly be on the site.");
                 return RedirectToAction("Index");
             }
 
